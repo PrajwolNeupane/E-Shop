@@ -9,7 +9,7 @@ export const CategoryIcon = ({ width, height, strokeColor, fillColor, stroke }) 
 }
 export const ClotheIcon = () => {
     return (
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.125 9.625V22.125M22.125 22.125V26.5H5.875V22.125M22.125 22.125H26.5V9.625C26.5 7.75 25.25 5.5625 23.375 4C21.5 2.4375 17.75 1.5 17.75 1.5H10.25C10.25 1.5 6.5 2.4375 4.625 4C2.75 5.5625 1.5 7.75 1.5 9.625V22.125H5.875M5.875 22.125V9.625" stroke="#252828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
