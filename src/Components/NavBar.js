@@ -109,18 +109,18 @@ export default function NavBar() {
                 </Stack>
             </MobileAppBar>
             <MobileDrawer open={openDrawer} setOpen={setOpenDrawer} />
-            <Modal open={openSearch} onClose={() => {
-                setOpenSearch(false);
-            }}>
-                <Stack sx={{ width: "90%", padding: "20px 5%", backgroundColor: "primary.mid", outline: "none",flexDirection:"row" ,gap:"20px",alignItems:"center"}}>
-                    <input placeholder='Search your Products' ref={InputRef} style={{
-                        outline: "none", border: "none", backgroundColor: `white`, fontSize: "14px", color: `${theme.palette.text.mid}`, fontWeight: 400, width: "100%",borderRadius:"12px",padding:"10px 10px"
-                    }} />
-                    <SearchIcon sx={{ color: "text.mid", cursor: "pointer" ,fontSize:"30px"}} onClick={() => {
-                        alert(InputRef.current.value);
-                    }} />
-                </Stack>
-            </Modal>
+                <Modal open={openSearch} onClose={() => {
+                    setOpenSearch(false);
+                }} >
+                    <Stack sx={{ width: "90%", padding: "15px 5%", backgroundColor: "primary.mid", outline: "none", flexDirection: "row", gap: "20px", alignItems: "center" }}>
+                        <input placeholder='Search your Products' ref={InputRef} style={{
+                            outline: "none", border: "none", backgroundColor: `white`, fontSize: "14px", color: `${theme.palette.text.mid}`, fontWeight: 400, width: "100%", borderRadius: "12px", padding: "10px 10px"
+                        }} />
+                        <SearchIcon sx={{ color: "text.mid", cursor: "pointer", fontSize: "30px" }} onClick={() => {
+                            alert(InputRef.current.value);
+                        }} />
+                    </Stack>
+                </Modal>
         </>
     )
 }

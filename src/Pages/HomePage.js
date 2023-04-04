@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, useMediaQuery } from '@mui/material';
 import CategoryNavigation from '../Components/CategoryNavigation';
 import DealerNavigation from '../Components/DealerNavigation';
 import ProductIcon from '../assets/icons/ProductIcon.svg';
@@ -9,6 +9,8 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 export default function HomePage() {
 
     const theme = useTheme();
+
+    const smMatch = useMediaQuery('(min-width:700px)');
 
     const SingleProductContainer = styled(Stack)(({ theme }) => ({
         padding: "10px",
@@ -24,7 +26,7 @@ export default function HomePage() {
         cursor: "pointer",
         [theme.breakpoints.down('md')]: {
             width: "200px",
-            backgroundColor:"red"
+            backgroundColor: "red"
         },
     }))
 
@@ -51,8 +53,11 @@ export default function HomePage() {
 
     return (
         <>
-            <CategoryNavigation />
-            <Stack sx={{ marginLeft: "30%", marginTop: "calc(-100vh + 80px)", width: "70%", backgroundColor: "primary.light" }}>
+            {
+                smMatch ? <CategoryNavigation /> : <></>
+            }
+
+            <Stack sx={{ marginLeft: `${smMatch?"30%":"0px"}`, marginTop: `${smMatch ? "calc(-100vh + 80px)" :"0px"}`, width: `${smMatch? "70%" :"100%"}`, backgroundColor: "primary.light" }}>
                 <DealerNavigation />
                 <Stack sx={{ padding: "10px 5%", gap: "15px" }}>
                     <Stack sx={{ flexDirection: "row", alignItems: "center" }}>
@@ -60,7 +65,7 @@ export default function HomePage() {
                         <Typography variant='h3' sx={{ fontSize: "22px", color: "text.main" }}>Products</Typography>
                     </Stack>
                     <hr style={{ width: "100%", opacity: 0.7, borderBottom: `1px solid ${theme.palette.text.mid}` }} />
-                    <Stack sx={{ flexDirection: "row",backgroundColor:"yellow" ,flexWrap: "wrap", justifyContent: "space-between", gap: "15px", paddingBottom: "20px" ,alignItems:"center"}}>
+                    <Stack sx={{ flexDirection: "row", backgroundColor: "yellow", flexWrap: "wrap", justifyContent: "space-between", gap: "15px", paddingBottom: "20px", alignItems: "center" }}>
                         <SingleProduct />
                         <SingleProduct />
                         <SingleProduct />
