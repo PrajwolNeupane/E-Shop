@@ -1,16 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, Stack, Typography, useMediaQuery, Badge } from '@mui/material';
+import { Button, Stack, Typography, useMediaQuery, Badge, Modal } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import MobileDrawer from './MobileDrawer';
 
 export default function NavBar() {
 
     const theme = useTheme();
     const InputRef = useRef(null);
     const matches = useMediaQuery('(min-width:1200px)');
+    const smMatch = useMediaQuery('(min-width:700px)');
+
+    const [openDrawer, setOpenDrawer] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
+
+
+    useEffect(() => {
+        if (smMatch) {
+            setOpenSearch(false);
+            setOpenDrawer(false);
+        }
+    }, [smMatch]);
 
 
     const AppBar = styled(Stack)(({ theme }) => ({
@@ -31,6 +44,7 @@ export default function NavBar() {
             display: "none"
         }
     }))
+
 
     const MobileAppBar = styled(Stack)(({ theme }) => ({
         display: "none",
@@ -76,10 +90,15 @@ export default function NavBar() {
                 </Stack>
             </AppBar>
             <MobileAppBar>
-                <MenuRoundedIcon sx={{ color: "text.main", fontSize: "30px" }} />
+                <MenuRoundedIcon sx={{ color: "text.main", fontSize: "30px", cursor: "pointer" }} onClick={() => {
+                    setOpenDrawer(true);
+                }} />
                 <Stack sx={{ flexDirection: "row", gap: "30px" }}>
-                    <SearchRoundedIcon sx={{ color: "text.mid", fontSize: "30px" }} />
+                    <SearchRoundedIcon sx={{ color: "text.mid", fontSize: "30px", cursor: "pointer" }} onClick={() => {
+                        setOpenSearch(true);
+                    }} />
                     <Badge sx={{
+                        cursor: "pointer",
                         "& .MuiBadge-badge": {
                             color: "primary.light",
                             backgroundColor: "otherColor.success"
@@ -89,6 +108,19 @@ export default function NavBar() {
                     </Badge>
                 </Stack>
             </MobileAppBar>
+            <MobileDrawer open={openDrawer} setOpen={setOpenDrawer} />
+            <Modal open={openSearch} onClose={() => {
+                setOpenSearch(false);
+            }}>
+                <Stack sx={{ width: "90%", padding: "20px 5%", backgroundColor: "primary.mid", outline: "none",flexDirection:"row" ,gap:"20px",alignItems:"center"}}>
+                    <input placeholder='Search your Products' ref={InputRef} style={{
+                        outline: "none", border: "none", backgroundColor: `white`, fontSize: "14px", color: `${theme.palette.text.mid}`, fontWeight: 400, width: "100%",borderRadius:"12px",padding:"10px 10px"
+                    }} />
+                    <SearchIcon sx={{ color: "text.mid", cursor: "pointer" ,fontSize:"30px"}} onClick={() => {
+                        alert(InputRef.current.value);
+                    }} />
+                </Stack>
+            </Modal>
         </>
     )
 }
