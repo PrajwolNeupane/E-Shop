@@ -55,7 +55,10 @@ export default function NavBar() {
         justifyContent: "space-between",
         [theme.breakpoints.down('sm')]: {
             display: "flex"
-        }
+        },
+        position: "sticky",
+        top: "0px",
+        zIndex: 3,
     }))
 
     return (

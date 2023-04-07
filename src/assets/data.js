@@ -82,4 +82,16 @@ export const StoreList = [
         title: "Mantra",
         image: "https://scontent.fktm6-1.fna.fbcdn.net/v/t39.30808-6/326404555_1364756287593436_4335418930722631053_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=woXA_FLjqU8AX_APAbp&_nc_ht=scontent.fktm6-1.fna&oh=00_AfBS_ZjuSzkpUzEAbkoKqYI93Vko_rwHKY-gJB0NV-zAeA&oe=64303143"
     }
+    ,
+    {
+        title: "Bhatbhateni",
+        image: "https://gmgnepal.com/wp-content/uploads/2021/02/bhatbhateni-fav.png"
+    }, {
+        title: "Guitar Shop",
+        image: "https://guitarshopnepal.com/wp-content/uploads/2023/03/GS-logo.png"
+    },
+    {
+        title: "Mantra",
+        image: "https://scontent.fktm6-1.fna.fbcdn.net/v/t39.30808-6/326404555_1364756287593436_4335418930722631053_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=woXA_FLjqU8AX_APAbp&_nc_ht=scontent.fktm6-1.fna&oh=00_AfBS_ZjuSzkpUzEAbkoKqYI93Vko_rwHKY-gJB0NV-zAeA&oe=64303143"
+    }
 ]

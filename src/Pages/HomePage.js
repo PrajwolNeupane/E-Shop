@@ -28,6 +28,14 @@ export default function HomePage() {
             width: "200px",
             backgroundColor: "red"
         },
+        [theme.breakpoints.down('sm')]: {
+            width: "200px",
+            width: "170px",
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: "200px",
+            width: "140px",
+        },
     }))
 
     const SingleProduct = () => {
@@ -65,7 +73,7 @@ export default function HomePage() {
                         <Typography variant='h3' sx={{ fontSize: "22px", color: "text.main" }}>Products</Typography>
                     </Stack>
                     <hr style={{ width: "100%", opacity: 0.7, borderBottom: `1px solid ${theme.palette.text.mid}` }} />
-                    <Stack sx={{ flexDirection: "row", backgroundColor: "yellow", flexWrap: "wrap", justifyContent: "space-between", gap: "15px", paddingBottom: "20px", alignItems: "center" }}>
+                    <Stack sx={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", gap: "15px", paddingBottom: "20px", alignItems: "center" }}>
                         <SingleProduct />
                         <SingleProduct />
                         <SingleProduct />
